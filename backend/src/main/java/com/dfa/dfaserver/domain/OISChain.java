@@ -6,6 +6,6 @@ import lombok.Data;
 @Data
 @Embeddable
 public class OISChain {
-    String name;
+    private String name;
     // ?
 }
