@@ -1,3 +1,17 @@
 springdoc:
     swagger-ui:
         path: /swagger-ui.html
+
+spring:
+    datasource:
+        url: jdbc:postgresql://localhost:5432/dfa
+        username: postgres
+        password: postgres
+        driverClassName: org.postgresql.Driver
+    jpa:
+        hibernate:
+            ddl-auto: validate
+        show-sql: true
+    liquibase:
+        enabled: true
+        change-log: classpath:db/changelog/db-changelog.xml
