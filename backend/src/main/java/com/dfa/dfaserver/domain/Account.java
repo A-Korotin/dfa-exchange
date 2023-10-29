@@ -20,5 +20,8 @@ public class Account {
     private List<Asset> assets;
 
     @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "name", column = @Column(name = "chain_name"))
+    })
     private OISChain chain;
 }
