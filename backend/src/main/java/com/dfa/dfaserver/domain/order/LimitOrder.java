@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Entity
-@Table(name = "limit_orders")
+@Table(name = "limit_order")
 @Data
 @EqualsAndHashCode(callSuper = true)
 public abstract class LimitOrder extends Order {
