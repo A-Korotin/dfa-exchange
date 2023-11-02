@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Entity
-@Table(name = "market_orders")
+@Table(name = "market_order")
 @Data
 @EqualsAndHashCode(callSuper = true)
 public abstract class MarketOrder extends Order {
