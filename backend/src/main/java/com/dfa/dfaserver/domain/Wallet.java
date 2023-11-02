@@ -16,6 +16,6 @@ public class Wallet {
 
     private String userId;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "wallet")
     private List<Account> accounts;
 }

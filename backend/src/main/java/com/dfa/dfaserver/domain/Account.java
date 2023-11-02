@@ -24,4 +24,7 @@ public class Account {
             @AttributeOverride(name = "name", column = @Column(name = "chain_name"))
     })
     private OISChain chain;
+
+    @ManyToOne
+    private Wallet wallet;
 }

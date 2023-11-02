@@ -13,14 +13,15 @@ import java.util.UUID;
 
 @MappedSuperclass
 @Data
-@DiscriminatorColumn(name = "type")
+@DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING)
 public abstract class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     protected UUID id;
 
     @Enumerated(EnumType.STRING)
-    protected OrderType type;
+    @Column(name = "dtype", columnDefinition = "TEXT", insertable = false, updatable = false)
+    protected OrderType type; // readonly, as it's a discriminator column
 
     @Enumerated(EnumType.STRING)
     protected OrderStatus status;
