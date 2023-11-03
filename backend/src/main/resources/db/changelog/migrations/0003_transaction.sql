@@ -2,7 +2,7 @@
 
 --changeset Alexey Korotin:0003
 
-CREATE TABLE "transaction" (
+CREATE TABLE transaction (
     id uuid PRIMARY KEY,
     sender_address TEXT REFERENCES account(address),
     receiver_address TEXT REFERENCES account(address),
@@ -12,5 +12,5 @@ CREATE TABLE "transaction" (
     amount INTEGER NOT NULL,
     status TEXT NOT NULL,
     type TEXT NOT NULL,
-    timestamp timestamptz NOT NULL
+    timestamp timestamp NOT NULL
 );
