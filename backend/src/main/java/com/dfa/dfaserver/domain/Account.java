@@ -1,11 +1,13 @@
 package com.dfa.dfaserver.domain;
 
+import com.dfa.dfaserver.domain.listeners.AccountInitializerListener;
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.List;
 
 @Entity
+@EntityListeners(AccountInitializerListener.class)
 @Table(name = "account")
 @Data
 public class Account {
