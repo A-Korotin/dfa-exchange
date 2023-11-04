@@ -38,7 +38,7 @@ public class OrderJpaTest {
 
     private void init() {
         final OISChain chain = new OISChain();
-        chain.setName("CHAIN");
+        chain.setName("TEST");
         asset = new Asset();
         asset.setChain(chain);
         asset.setTicker("TICK");
