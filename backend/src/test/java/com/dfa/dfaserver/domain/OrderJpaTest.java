@@ -5,7 +5,6 @@ import com.dfa.dfaserver.domain.order.*;
 import com.dfa.dfaserver.domain.repository.AccountRepository;
 import com.dfa.dfaserver.domain.repository.LimitOrderRepository;
 import com.dfa.dfaserver.domain.repository.MarketOrderRepository;
-import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -41,8 +40,8 @@ public class OrderJpaTest {
         final OISChain chain = new OISChain();
         chain.setName("CHAIN");
         asset = new Asset();
-        asset.chain = chain;
-        asset.ticker = "TICK";
+        asset.setChain(chain);
+        asset.setTicker("TICK");
 
 
         fromAccount = new Account();
