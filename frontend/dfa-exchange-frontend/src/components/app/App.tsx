@@ -1,0 +1,20 @@
+import './App.css'
+import NavBar from "../navbar/NavBar.tsx";
+
+function App() {
+    return (
+        <div className="app">
+            <NavBar/>
+            <div className="container">
+                <div className="content">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam cumque, dolores enim ipsa iusto laboriosam magni natus porro sunt? Adipisci architecto debitis eaque eos est eveniet magni maxime natus, nostrum nulla numquam quae quaerat quasi quod, repudiandae sit tenetur. Accusamus adipisci animi architecto, asperiores aspernatur consequatur consequuntur culpa debitis dolor enim eum ex expedita facere id in ipsam ipsum iste laborum laudantium libero mollitia nisi nobis nulla numquam, officia officiis placeat praesentium quasi quidem reiciendis, repellendus similique tempore tenetur unde veniam voluptas voluptate! Accusantium adipisci aperiam assumenda at aut commodi consectetur, culpa debitis dolorem doloribus eligendi enim ex impedit, itaque labore nostrum nulla odio optio pariatur quas quod ratione sapiente sequi sint temporibus unde veniam? Error libero nisi veritatis. Ad doloribus dolorum explicabo fugit ipsa ipsam iusto minus molestiae nisi odit, officiis perferendis quaerat quis quos repellendus sunt vel vero voluptas. Assumenda aut culpa dicta dolorem doloribus hic nihil, qui quos reiciendis rem reprehenderit sapiente soluta veniam vitae, voluptates. Accusantium atque consequuntur corporis delectus deserunt earum error esse ex facere ipsam ipsum itaque laudantium nihil nostrum obcaecati optio perferendis, porro praesentium quae repellendus reprehenderit, saepe sint soluta temporibus vel vero voluptates voluptatibus! Asperiores commodi excepturi ipsa odio, perspiciatis quia reiciendis vel. Aliquid distinctio fugit porro. Adipisci dolorem fugit nam nulla. Asperiores, at aut exercitationem labore ullam vitae? Aliquam at beatae cum dicta distinctio, error est eum facere facilis fuga fugit hic id, in, laudantium libero mollitia nam nihil non perspiciatis placeat quasi quibusdam quidem quis reiciendis rem repudiandae sit tempora tempore veritatis voluptatibus. At culpa dolor dolores enim eum eveniet excepturi harum itaque, laudantium mollitia nemo nostrum, nulla quam quos repellat reprehenderit sunt? Amet animi commodi consectetur consequatur culpa cupiditate ea, eius eum ex expedita, fugiat fugit incidunt inventore itaque iusto maiores molestias nihil nobis numquam officia pariatur praesentium quaerat quo quod quos sapiente tempora voluptas! Aliquid commodi quos ut! Accusamus aperiam, assumenda consectetur corporis dignissimos dolor doloribus earum eos esse ipsum laudantium maxime modi natus nesciunt nisi non quae quasi quibusdam repellat sapiente veritatis voluptatem voluptatum? Ab accusantium consectetur distinctio dolor error id illum libero magni nostrum, porro possimus quidem quisquam quo repellendus repudiandae rerum temporibus tenetur ut veritatis voluptatem. Atque blanditiis dolores eius esse illo impedit ipsa iusto laboriosam maxime molestias nulla odio quia quis quo quos, rem voluptatibus? Ab ducimus, est itaque neque quae sequi velit. Architecto eligendi, harum nisi pariatur quidem reprehenderit voluptatem. Aliquam animi aut cum dignissimos dolorem dolores ducimus ea enim eveniet exercitationem, explicabo fugit illum incidunt ipsam iusto minus nesciunt nisi nostrum odio omnis provident quas quasi quibusdam quisquam quos, repellat saepe sed sunt suscipit temporibus velit veniam vero voluptatum? Delectus deserunt dignissimos, dolor dolore eos error esse et facere harum ipsum libero nam nulla quod quos reiciendis sit voluptatibus! Doloremque, ducimus et fugiat modi porro provident sint suscipit tempore velit voluptatibus? Cum hic magnam omnis optio quaerat? Architecto corporis expedita fugiat illo labore nam obcaecati odio officia, provident quae quibusdam rem velit? Dolorum error minus nostrum numquam porro quae repudiandae tempora?
+
+                </div>
+            </div>
+        </div>
+
+    )
+
+}
+
+export default App
