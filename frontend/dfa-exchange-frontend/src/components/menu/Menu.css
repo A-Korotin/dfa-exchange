@@ -1,0 +1,15 @@
+.menu {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column; }
+  .menu a {
+    font-size: 1.3rem;
+    text-decoration: none;
+    margin-top: 25px;
+    margin-left: 15px;
+    color: #595959;
+    transition: .3s; }
+    .menu a:hover {
+      color: black; }
+
+/*# sourceMappingURL=Menu.css.map */

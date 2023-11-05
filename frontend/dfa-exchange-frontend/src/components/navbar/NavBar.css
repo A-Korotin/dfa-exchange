@@ -1,0 +1,14 @@
+.navbar {
+  background-color: #FFFFFF;
+  height: 4rem;
+  border-bottom: 1px solid #cbcaca; }
+  .navbar .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .navbar .container {
+    height: 100%; }
+  .navbar .navbar_title {
+    color: #363636; }
+
+/*# sourceMappingURL=NavBar.css.map */

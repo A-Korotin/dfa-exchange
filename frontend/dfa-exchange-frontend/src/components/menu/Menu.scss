@@ -1,0 +1,16 @@
+.menu {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  a {
+    font-size: 1.3rem;
+    text-decoration: none;
+    margin-top: 25px;
+    margin-left: 15px;
+    color: #595959;
+    transition: .3s;
+    &:hover {
+      color: black;
+    }
+  }
+}

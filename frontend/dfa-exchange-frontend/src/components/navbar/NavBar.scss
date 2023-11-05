@@ -1,0 +1,26 @@
+$navbar_background_color: #FFFFFF;
+$navbar_height: 4rem;
+$navbar_title_color: #363636;
+$navbar_border_color: #cbcaca;
+
+.navbar {
+
+  background-color: $navbar_background_color;
+  height: $navbar_height;
+  border-bottom: 1px solid $navbar_border_color;
+
+  .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container {
+    height: 100%;
+  }
+
+  .navbar_title {
+    color: #363636;
+  }
+
+}
