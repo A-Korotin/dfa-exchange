@@ -32,12 +32,28 @@ services:
     volumes:
       - ./keycloak/data/keycloak-db:/var/lib/postgresql/data
 
+  app-db:
+    container_name: app-database
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: dfa
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - ./database:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+
   application:
+    depends_on:
+      - app-db
     build:
       dockerfile: Dockerfile
       context: ../backend/
     environment:
       - SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI=http://keycloak:8080/auth/realms/DFA
       - SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK_SET_URI=http://keycloak:8080/auth/realms/DFA/protocol/openid-connect/certs
+      - SPRING_DATASOURCE_URL= jdbc:postgresql://app-db:5432/dfa
     ports:
       - "8081:8081"

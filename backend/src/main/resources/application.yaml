@@ -1,6 +1,11 @@
 server:
     port: 8081
 
+
+springdoc:
+    swagger-ui:
+        path: /swagger-ui.html
+
 spring:
     security:
         oauth2:
@@ -8,14 +13,8 @@ spring:
                 jwt:
                     issuer-uri: http://localhost:8080/auth/realms/DFA
                     jwk-set-uri: http://localhost:8080/auth/realms/DFA/protocol/openid-connect/certs
-
-springdoc:
-    swagger-ui:
-        path: /swagger-ui.html
-
-spring:
     datasource:
-        url: jdbc:postgresql://localhost:5432/dfa
+        url: jdbc:postgresql://localhost:5433/dfa
         username: postgres
         password: postgres
         driverClassName: org.postgresql.Driver
