@@ -6,7 +6,9 @@ import com.dfa.dfaserver.invest.domain.order.OrderType;
 import com.dfa.dfaserver.invest.domain.order.SellLimitOrder;
 import com.dfa.dfaserver.invest.dto.order.LimitOrderDto;
 import org.mapstruct.ObjectFactory;
+import org.springframework.stereotype.Component;
 
+@Component
 public class LimitOrderFactory extends OrderFactory<LimitOrder, LimitOrderDto> {
     {
         supplierMap.put(OrderType.SELL, SellLimitOrder::new);
@@ -15,6 +17,6 @@ public class LimitOrderFactory extends OrderFactory<LimitOrder, LimitOrderDto> {
     @Override
     @ObjectFactory
     public LimitOrder create(LimitOrderDto dto) {
-        return null;
+        return supplierMap.get(dto.getType()).get();
     }
 }
