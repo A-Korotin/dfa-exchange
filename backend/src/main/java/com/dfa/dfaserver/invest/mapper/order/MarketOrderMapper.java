@@ -11,11 +11,11 @@ import org.mapstruct.Mapping;
 
 @Mapper(config = MapConfig.class, uses = {MarketOrderFactory.class, AssetMapper.class})
 public abstract class MarketOrderMapper {
-    @Mapping(target = "from.address", source = "fromAddress")
-    @Mapping(target = "to.address", source = "toAddress")
+    @Mapping(target = "from.address", source = "from")
+    @Mapping(target = "to.address", source = "to")
     public abstract MarketOrder fromDto(MarketOrderDto dto);
 
-    @Mapping(target = "fromAddress", source = "from.address")
-    @Mapping(target = "toAddress", source = "to.address")
+    @Mapping(target = "from", source = "from.address")
+    @Mapping(target = "to", source = "to.address")
     public abstract OutputMarketOrderDto toDto(MarketOrder order);
 }
