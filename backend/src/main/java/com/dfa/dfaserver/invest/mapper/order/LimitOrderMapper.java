@@ -12,11 +12,11 @@ import org.mapstruct.Mapping;
 @Mapper(config = MapConfig.class, uses = {AssetMapper.class, LimitOrderFactory.class})
 public abstract class LimitOrderMapper {
 
-    @Mapping(target = "from.address", source = "fromAddress")
-    @Mapping(target = "to.address", source = "toAddress")
+    @Mapping(target = "from.address", source = "from")
+    @Mapping(target = "to.address", source = "to")
     public abstract LimitOrder fromDto(LimitOrderDto dto);
 
-    @Mapping(target = "fromAddress", source = "from.address")
-    @Mapping(target = "toAddress", source = "to.address")
+    @Mapping(target = "from", source = "from.address")
+    @Mapping(target = "to", source = "to.address")
     public abstract OutputLimitOrderDto toDto(LimitOrder order);
 }
