@@ -3,8 +3,6 @@ package com.dfa.dfaserver.invest.dto.order;
 import com.dfa.dfaserver.invest.domain.order.OrderStatus;
 import com.dfa.dfaserver.invest.domain.order.OrderType;
 import com.dfa.dfaserver.invest.dto.asset.AssetDto;
-import com.dfa.dfaserver.invest.validation.groups.OnCreate;
-import com.dfa.dfaserver.invest.validation.groups.OnUpdate;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Null;
@@ -18,39 +16,38 @@ import java.util.UUID;
 @Builder
 public class LimitOrderDto {
 
-    @Null(groups = {OnCreate.class, OnUpdate.class})
+    @Null
     public UUID id;
 
-    @NotNull(groups = OnCreate.class)
-    @Null(groups = OnUpdate.class)
+    @NotNull
     public OrderType type;
 
-    @Null(groups = {OnCreate.class, OnUpdate.class})
+    @Null
     public OrderStatus status;
 
-    @Null(groups = {OnCreate.class, OnUpdate.class})
+    @Null
     public ZonedDateTime timestamp;
 
-    @NotNull(groups = {OnCreate.class, OnUpdate.class})
+    @NotNull
     public String from;
 
-    @NotNull(groups = {OnCreate.class, OnUpdate.class})
+    @NotNull
     public String to;
 
-    @NotNull(groups = {OnCreate.class, OnUpdate.class})
+    @NotNull
     public AssetDto buyAsset;
 
-    @NotNull(groups = {OnCreate.class, OnUpdate.class})
+    @NotNull
     public AssetDto sellAsset;
 
-    @NotNull(groups = {OnCreate.class, OnUpdate.class})
+    @NotNull
     @Min(1)
     public Integer price;
 
-    @NotNull(groups = {OnCreate.class, OnUpdate.class})
+    @NotNull
     @Min(1)
     public Integer volume;
 
-    @Null(groups = {OnCreate.class, OnUpdate.class})
+    @Null
     public Integer volumeExecuted;
 }
