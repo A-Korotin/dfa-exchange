@@ -3,26 +3,29 @@ package com.dfa.dfaserver.invest.mapper.order;
 import com.dfa.dfaserver.invest.domain.mock.MockOrderExecutorService;
 import com.dfa.dfaserver.invest.domain.order.LimitOrder;
 import com.dfa.dfaserver.invest.domain.order.MarketOrder;
+import com.dfa.dfaserver.invest.dto.order.InputLimitOrderDto;
+import com.dfa.dfaserver.invest.dto.order.InputMarketOrderDto;
 import com.dfa.dfaserver.invest.dto.order.LimitOrderDto;
 import com.dfa.dfaserver.invest.dto.order.MarketOrderDto;
 import com.dfa.dfaserver.invest.mapper.order.provider.LimitOrderDtoProvider;
 import com.dfa.dfaserver.invest.mapper.order.provider.MarketOrderDtoProvider;
 import com.dfa.dfaserver.invest.mapper.order.provider.PolymorphicLimitOrderMappingProvider;
 import com.dfa.dfaserver.invest.mapper.order.provider.PolymorphicMarketOrderMappingProvider;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ArgumentsSource;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.jdbc.EmbeddedDatabaseConnection;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
-@EnableAutoConfiguration(exclude = DataSourceAutoConfiguration.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@AutoConfigureTestDatabase(connection = EmbeddedDatabaseConnection.H2)
 public class OrderMappingTest {
     @Autowired
     private LimitOrderMapper limitOrderMapper;
@@ -33,11 +36,10 @@ public class OrderMappingTest {
     @Autowired
     private MockOrderExecutorService orderExecutorService;
 
-    @Order(1)
     @ParameterizedTest
     @DisplayName("Test mapping LimitOrderDto -> *LimitOrder and vice versa")
     @ArgumentsSource(LimitOrderDtoProvider.class)
-    public void limitOrderToDtoMappingTest(LimitOrderDto dto) {
+    public void limitOrderToDtoMappingTest(InputLimitOrderDto dto) {
         LimitOrder limitOrder = limitOrderMapper.fromDto(dto);
 
         assertEquals(limitOrder.getFrom().getAddress(), dto.from);
@@ -59,11 +61,10 @@ public class OrderMappingTest {
         assertEquals(mappedDto.sellAsset.chainName, limitOrder.getSellAsset().getChain().getName());
     }
 
-    @Order(2)
     @ParameterizedTest
     @DisplayName("Test mapping MarketOrderDto -> *MarketOrder and vice versa")
     @ArgumentsSource(MarketOrderDtoProvider.class)
-    public void marketOrderToDtoMappingTest(MarketOrderDto dto) {
+    public void marketOrderToDtoMappingTest(InputMarketOrderDto dto) {
         MarketOrder marketOrder = marketOrderMapper.fromDto(dto);
 
         assertEquals(marketOrder.getFrom().getAddress(), dto.from);
@@ -83,22 +84,20 @@ public class OrderMappingTest {
         assertEquals(mappedDto.sellAsset.chainName, marketOrder.getSellAsset().getChain().getName());
     }
 
-    @Order(3)
     @ParameterizedTest
     @DisplayName("Polymorphic limit order mapping test")
     @ArgumentsSource(PolymorphicLimitOrderMappingProvider.class)
-    public void polymorphicMappingTest(LimitOrderDto o1, LimitOrderDto o2) {
+    public void polymorphicMappingTest(InputLimitOrderDto o1, InputLimitOrderDto o2) {
         limitOrderMapper.fromDto(o1).execute(orderExecutorService);
         limitOrderMapper.fromDto(o2).execute(orderExecutorService);
         assertEquals(1, orderExecutorService.getBuyLimitExecutions());
         assertEquals(1, orderExecutorService.getSellLimitExecutions());
     }
 
-    @Order(4)
     @ParameterizedTest
     @DisplayName("Polymorphic market order mapping test")
     @ArgumentsSource(PolymorphicMarketOrderMappingProvider.class)
-    public void polymorphicMappingTest(MarketOrderDto o1, MarketOrderDto o2) {
+    public void polymorphicMappingTest(InputMarketOrderDto o1, InputMarketOrderDto o2) {
         marketOrderMapper.fromDto(o1).execute(orderExecutorService);
         marketOrderMapper.fromDto(o2).execute(orderExecutorService);
         assertEquals(1, orderExecutorService.getBuyMarketExecutions());
