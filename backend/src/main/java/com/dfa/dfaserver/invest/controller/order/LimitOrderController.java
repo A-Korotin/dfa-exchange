@@ -1,10 +1,12 @@
 package com.dfa.dfaserver.invest.controller.order;
 
 import com.dfa.dfaserver.invest.domain.order.LimitOrder;
+import com.dfa.dfaserver.invest.dto.order.InputLimitOrderDto;
 import com.dfa.dfaserver.invest.dto.order.LimitOrderDto;
 import com.dfa.dfaserver.invest.exception.NotFoundException;
 import com.dfa.dfaserver.invest.mapper.order.LimitOrderMapper;
 import com.dfa.dfaserver.invest.service.order.LimitOrderService;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -25,7 +27,7 @@ public class LimitOrderController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public LimitOrderDto createLimitOrder(@Valid @RequestBody LimitOrderDto dto) {
+    public LimitOrderDto createLimitOrder(@Valid @RequestBody @Schema() InputLimitOrderDto dto) {
         LimitOrder order = mapper.fromDto(dto);
         order = limitOrderService.save(order);
         return mapper.toDto(order);
@@ -41,7 +43,7 @@ public class LimitOrderController {
 
     @PutMapping("/{id}")
     public LimitOrderDto editLimitOrder(@PathVariable UUID id,
-                                        @Valid @RequestBody LimitOrderDto dto) {
+                                        @Valid @RequestBody InputLimitOrderDto dto) {
         LimitOrder order = mapper.fromDto(dto);
         order = limitOrderService.updateById(id, order);
         return mapper.toDto(order);
