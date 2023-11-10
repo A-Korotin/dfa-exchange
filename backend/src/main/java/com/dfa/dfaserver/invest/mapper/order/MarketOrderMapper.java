@@ -2,7 +2,6 @@ package com.dfa.dfaserver.invest.mapper.order;
 
 import com.dfa.dfaserver.invest.domain.order.MarketOrder;
 import com.dfa.dfaserver.invest.dto.order.MarketOrderDto;
-import com.dfa.dfaserver.invest.dto.order.OutputMarketOrderDto;
 import com.dfa.dfaserver.invest.factory.order.MarketOrderFactory;
 import com.dfa.dfaserver.invest.mapper.asset.AssetMapper;
 import com.dfa.dfaserver.invest.mapper.config.MapConfig;
@@ -17,5 +16,5 @@ public abstract class MarketOrderMapper {
 
     @Mapping(target = "from", source = "from.address")
     @Mapping(target = "to", source = "to.address")
-    public abstract OutputMarketOrderDto toDto(MarketOrder order);
+    public abstract MarketOrderDto toDto(MarketOrder order);
 }

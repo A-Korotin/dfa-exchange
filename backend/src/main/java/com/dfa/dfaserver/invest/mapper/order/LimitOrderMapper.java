@@ -2,7 +2,6 @@ package com.dfa.dfaserver.invest.mapper.order;
 
 import com.dfa.dfaserver.invest.domain.order.LimitOrder;
 import com.dfa.dfaserver.invest.dto.order.LimitOrderDto;
-import com.dfa.dfaserver.invest.dto.order.OutputLimitOrderDto;
 import com.dfa.dfaserver.invest.factory.order.LimitOrderFactory;
 import com.dfa.dfaserver.invest.mapper.asset.AssetMapper;
 import com.dfa.dfaserver.invest.mapper.config.MapConfig;
@@ -18,5 +17,5 @@ public abstract class LimitOrderMapper {
 
     @Mapping(target = "from", source = "from.address")
     @Mapping(target = "to", source = "to.address")
-    public abstract OutputLimitOrderDto toDto(LimitOrder order);
+    public abstract LimitOrderDto toDto(LimitOrder order);
 }

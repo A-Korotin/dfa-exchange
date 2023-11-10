@@ -5,8 +5,6 @@ import com.dfa.dfaserver.invest.domain.order.LimitOrder;
 import com.dfa.dfaserver.invest.domain.order.MarketOrder;
 import com.dfa.dfaserver.invest.dto.order.LimitOrderDto;
 import com.dfa.dfaserver.invest.dto.order.MarketOrderDto;
-import com.dfa.dfaserver.invest.dto.order.OutputLimitOrderDto;
-import com.dfa.dfaserver.invest.dto.order.OutputMarketOrderDto;
 import com.dfa.dfaserver.invest.mapper.order.provider.LimitOrderDtoProvider;
 import com.dfa.dfaserver.invest.mapper.order.provider.MarketOrderDtoProvider;
 import com.dfa.dfaserver.invest.mapper.order.provider.PolymorphicLimitOrderMappingProvider;
@@ -50,7 +48,7 @@ public class OrderMappingTest {
         assertEquals(limitOrder.getSellAsset().getChain().getName(), dto.sellAsset.chainName);
         assertEquals(limitOrder.getSellAsset().getTicker(), dto.sellAsset.ticker);
 
-        OutputLimitOrderDto mappedDto = limitOrderMapper.toDto(limitOrder);
+        LimitOrderDto mappedDto = limitOrderMapper.toDto(limitOrder);
 
         assertEquals(mappedDto.from, limitOrder.getFrom().getAddress());
         assertEquals(mappedDto.to, limitOrder.getTo().getAddress());
@@ -75,7 +73,7 @@ public class OrderMappingTest {
         assertEquals(marketOrder.getSellAsset().getChain().getName(), dto.sellAsset.chainName);
         assertEquals(marketOrder.getSellAsset().getTicker(), dto.sellAsset.ticker);
 
-        OutputMarketOrderDto mappedDto = marketOrderMapper.toDto(marketOrder);
+        MarketOrderDto mappedDto = marketOrderMapper.toDto(marketOrder);
 
         assertEquals(mappedDto.from, marketOrder.getFrom().getAddress());
         assertEquals(mappedDto.to, marketOrder.getTo().getAddress());
