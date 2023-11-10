@@ -18,7 +18,7 @@ public class MarketOrderFactory extends OrderFactory<MarketOrder, MarketOrderDto
     @Override
     @ObjectFactory
     public MarketOrder create(MarketOrderDto dto) {
-        return supplierMap.get(dto.type).get();
+        return supplierMap.get(dto.getType()).get();
 
     }
 }
