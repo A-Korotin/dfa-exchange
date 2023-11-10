@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @DataJpaTest
-@ComponentScan("com.dfa.dfaserver.invest.domain")
+@ComponentScan("com.dfa.dfaserver.invest")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class AccountListenerTest {
     @Autowired

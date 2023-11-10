@@ -1,10 +1,10 @@
 package com.dfa.dfaserver.invest.domain;
 
 import com.dfa.dfaserver.invest.domain.mock.MockOrderExecutorService;
-import com.dfa.dfaserver.invest.domain.repository.AccountRepository;
-import com.dfa.dfaserver.invest.domain.repository.LimitOrderRepository;
-import com.dfa.dfaserver.invest.domain.repository.MarketOrderRepository;
 import com.dfa.dfaserver.invest.domain.order.*;
+import com.dfa.dfaserver.invest.domain.repository.AccountRepository;
+import com.dfa.dfaserver.invest.repository.order.LimitOrderRepository;
+import com.dfa.dfaserver.invest.repository.order.MarketOrderRepository;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -15,7 +15,7 @@ import org.springframework.context.annotation.ComponentScan;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @DataJpaTest
-@ComponentScan("com.dfa.dfaserver.invest.domain")
+@ComponentScan("com.dfa.dfaserver.invest")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class OrderJpaTest {
     @Autowired
