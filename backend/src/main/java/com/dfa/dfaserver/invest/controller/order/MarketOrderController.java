@@ -15,6 +15,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springdoc.core.converters.models.PageableAsQueryParam;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -75,8 +77,8 @@ public class MarketOrderController {
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @Operation(summary = "Delete market order",
-            description = "Delete market order by ID",
-            responses = {@ApiResponse(description = "OK", responseCode = "200", useReturnTypeSchema = true),
+            description = "Delete and cancel market order by ID",
+            responses = {@ApiResponse(description = "Deleted", responseCode = "204", useReturnTypeSchema = true),
                     @ApiResponse(description = "Bad request", responseCode = "400", content = {@Content(schema = @Schema(implementation = ErrorDto.class))}),
                     @ApiResponse(description = "Not authorized", responseCode = "401", content = {@Content(schema = @Schema(implementation = Void.class))}),
                     @ApiResponse(description = "Not found", responseCode = "404", content = {@Content(schema = @Schema(implementation = Void.class))})})
@@ -86,12 +88,12 @@ public class MarketOrderController {
 
     @GetMapping
     @Operation(summary = "Get all market orders",
-            description = "Get all market orders",
+            description = "Get all market orders by certain criteria specified by request parameters",
             responses = {@ApiResponse(description = "OK", responseCode = "200", useReturnTypeSchema = true),
                     @ApiResponse(description = "Not authorized", responseCode = "401", content = {@Content(schema = @Schema(implementation = Void.class))})})
-
-    public List<MarketOrderDto> getAllMarketOrders() {
-        return marketOrderService.findAll().stream()
+    @PageableAsQueryParam
+    public List<MarketOrderDto> getAllMarketOrders(Pageable query) {
+        return marketOrderService.findAll(query).stream()
                 .map(mapper::toDto)
                 .toList();
     }
