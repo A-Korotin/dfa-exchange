@@ -29,7 +29,7 @@ public class LimitOrderController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public LimitOrderDto createLimitOrder(@Valid @RequestBody @Schema() InputLimitOrderDto dto) {
+    public LimitOrderDto createLimitOrder(@Valid @RequestBody InputLimitOrderDto dto) {
         LimitOrder order = mapper.fromDto(dto);
         order = limitOrderService.save(order);
         return mapper.toDto(order);
