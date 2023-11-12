@@ -7,6 +7,7 @@ import com.dfa.dfaserver.invest.exception.NotFoundException;
 import com.dfa.dfaserver.invest.mapper.order.LimitOrderMapper;
 import com.dfa.dfaserver.invest.service.order.LimitOrderService;
 import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -21,6 +22,7 @@ import java.util.UUID;
 @RequestMapping("/api/v1/orders/limit")
 @RequiredArgsConstructor
 @Validated
+@Tag(name = "Limit orders", description = "Create, retrieve, update and delete limit orders")
 public class LimitOrderController {
     private final LimitOrderService limitOrderService;
     private final LimitOrderMapper mapper;
