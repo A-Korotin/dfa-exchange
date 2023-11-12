@@ -5,6 +5,8 @@ import com.dfa.dfaserver.invest.exception.NotFoundException;
 import com.dfa.dfaserver.invest.repository.order.MarketOrderRepository;
 import com.dfa.dfaserver.invest.service.order.MarketOrderService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,7 +15,7 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
-public class MarketOrderCrudServiceImpl implements MarketOrderService {
+public class MarketOrderServiceImpl implements MarketOrderService {
 
     private final MarketOrderRepository marketOrderRepository;
 
@@ -49,5 +51,10 @@ public class MarketOrderCrudServiceImpl implements MarketOrderService {
     @Override
     public List<MarketOrder> findAll() {
         return marketOrderRepository.findAll();
+    }
+
+    @Override
+    public Page<MarketOrder> findAll(Pageable pageable) {
+        return marketOrderRepository.findAll(pageable);
     }
 }

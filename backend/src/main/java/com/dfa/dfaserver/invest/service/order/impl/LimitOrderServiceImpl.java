@@ -5,6 +5,8 @@ import com.dfa.dfaserver.invest.exception.NotFoundException;
 import com.dfa.dfaserver.invest.repository.order.LimitOrderRepository;
 import com.dfa.dfaserver.invest.service.order.LimitOrderService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,7 +15,7 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
-public class LimitOrderCrudServiceImpl implements LimitOrderService {
+public class LimitOrderServiceImpl implements LimitOrderService {
     private final LimitOrderRepository limitOrderRepository;
 
 
@@ -49,5 +51,10 @@ public class LimitOrderCrudServiceImpl implements LimitOrderService {
     @Override
     public List<LimitOrder> findAll() {
         return limitOrderRepository.findAll();
+    }
+
+    @Override
+    public Page<LimitOrder> findAll(Pageable pageable) {
+        return limitOrderRepository.findAll(pageable);
     }
 }
