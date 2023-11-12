@@ -48,9 +48,11 @@ services:
   application:
     depends_on:
       - app-db
+    pull_policy: build
     build:
       dockerfile: Dockerfile
       context: ../backend/
+      target: prod
     environment:
       - SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI=http://keycloak:8080/auth/realms/DFA
       - SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK_SET_URI=http://keycloak:8080/auth/realms/DFA/protocol/openid-connect/certs
