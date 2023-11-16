@@ -1,4 +1,4 @@
-package com.dfa.dfaserver.invest.domain.listeners;
+package com.dfa.dfaserver.invest.domain.listener;
 
 import com.dfa.dfaserver.invest.domain.Account;
 import com.dfa.dfaserver.invest.domain.Asset;
