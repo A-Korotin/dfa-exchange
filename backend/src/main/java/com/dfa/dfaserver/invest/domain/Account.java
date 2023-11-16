@@ -1,6 +1,6 @@
 package com.dfa.dfaserver.invest.domain;
 
-import com.dfa.dfaserver.invest.domain.listeners.AccountInitializerListener;
+import com.dfa.dfaserver.invest.domain.listener.AccountInitializerListener;
 import jakarta.persistence.*;
 import lombok.Data;
 
