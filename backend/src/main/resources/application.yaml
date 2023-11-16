@@ -25,3 +25,10 @@ spring:
     liquibase:
         enabled: true
         change-log: classpath:db/changelog/db-changelog.xml
+
+app:
+    config:
+        async:
+            max-thread-pool-size: 10
+        cache:
+            ttl: 1000000 # ms
