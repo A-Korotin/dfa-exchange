@@ -15,7 +15,7 @@ import java.util.concurrent.CompletableFuture;
 
 @Service("TEST")
 @RequiredArgsConstructor
-public class MockOISProvider implements OISProvider {
+public class TestOISProvider implements OISProvider {
 
     private List<Asset> mockAssetHttpQuery() {
         try {
@@ -42,7 +42,7 @@ public class MockOISProvider implements OISProvider {
 
     @Override
     @Async
-    public CompletableFuture<List<Balance>> getBalance(Account account, Asset asset) {
+    public CompletableFuture<Balance> getBalance(Account account, Asset asset) {
         return null;
     }
 

@@ -8,5 +8,5 @@ import java.util.concurrent.CompletableFuture;
 
 public interface BalanceProvider {
     CompletableFuture<List<Balance>> getBalance(Account account);
-    CompletableFuture<List<Balance>> getBalance(Account account, Asset asset);
+    CompletableFuture<Balance> getBalance(Account account, Asset asset);
 }
