@@ -69,7 +69,6 @@ public class WalletController {
     public WalletOutDto editWallet(@PathVariable UUID id,
                                         @Valid @RequestBody WalletInDto dto) {
         Wallet wallet = mapper.fromDto(dto);
-        System.out.println(wallet.toString());
         wallet = walletService.updateById(id, wallet);
 
         return mapper.toDto(wallet);

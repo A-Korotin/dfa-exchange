@@ -37,7 +37,6 @@ public class AccountController {
                     @ApiResponse(description = "Not authorized", responseCode = "401", content = {@Content(schema = @Schema(implementation = Void.class))})})
     public AccountDto createLimitOrder(@Valid @RequestBody AccountDto dto) {
         Account account = mapper.fromDto(dto);
-        System.out.println(account.toString());
         account = accountService.save(account);
 
         return mapper.toDto(account);
