@@ -28,7 +28,7 @@ public class OrderJpaTest {
     private MarketOrderRepository marketOrderRepository;
 
     @Autowired
-    private AccountRepository accountRepository;
+    private AccountRepository testAccountRepository;
 
 
     private Asset asset;
@@ -49,14 +49,14 @@ public class OrderJpaTest {
         fromAccount.setAlias("Test account");
         fromAccount.setChain(chain);
         fromAccount.setPrivateKey("PRIVATE_KEY");
-        fromAccount = accountRepository.save(fromAccount);
+        fromAccount = testAccountRepository.save(fromAccount);
 
         toAccount = new Account();
         toAccount.setAddress("ADDR_TO");
         toAccount.setAlias("Test account");
         toAccount.setChain(chain);
         toAccount.setPrivateKey("PRIVATE_KEY");
-        toAccount = accountRepository.save(toAccount);
+        toAccount = testAccountRepository.save(toAccount);
     }
 
     private void initOrder(Order order) {

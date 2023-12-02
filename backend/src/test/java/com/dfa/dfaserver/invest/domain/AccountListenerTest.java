@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class AccountListenerTest {
     @Autowired
-    private AccountRepository accountRepository;
+    private AccountRepository testAccountRepository;
 
     private OISChain validChain;
     private OISChain invalidChain;
@@ -36,7 +36,7 @@ public class AccountListenerTest {
         account.setAlias("alias");
         account.setChain(validChain);
 
-        account = accountRepository.save(account);
+        account = testAccountRepository.save(account);
 
         assertEquals(2, account.getAssets().size());
         assertEquals("BTC", account.getAssets().get(0).getTicker());
@@ -51,7 +51,7 @@ public class AccountListenerTest {
         account.setAlias("alias");
         account.setChain(invalidChain);
 
-        assertThrows(UnknownChainException.class, () -> accountRepository.save(account));
+        assertThrows(UnknownChainException.class, () -> testAccountRepository.save(account));
     }
 
 }
