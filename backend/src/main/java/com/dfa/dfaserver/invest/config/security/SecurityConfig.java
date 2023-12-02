@@ -57,7 +57,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.OPTIONS).permitAll()
                         .requestMatchers("/all/**").permitAll()
                         .requestMatchers("/user/**").hasAuthority("USER")
-                        .requestMatchers("/admin/**").hasAuthority("ADMIN")
+                        .requestMatchers("/api/v1/**").hasAuthority("ADMIN")
                         .anyRequest().authenticated())
                 .cors(Customizer.withDefaults());
         return security.build();
