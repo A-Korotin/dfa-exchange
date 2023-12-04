@@ -49,5 +49,9 @@ public abstract class Order {
     })
     protected Asset sellAsset;
 
+    protected Integer volume;
+
+    protected Integer volumeExecuted;
+
     public abstract void execute(OrderExecutorService visitor);
 }
