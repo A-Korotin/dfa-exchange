@@ -1,6 +1,7 @@
 package com.dfa.dfaserver.invest.dto.wallet;
 
 import com.dfa.dfaserver.invest.domain.Account;
+import com.dfa.dfaserver.invest.dto.account.AccountDto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -19,5 +20,5 @@ public class WalletOutDto {
     public String userId;
 
     @NotNull
-    public List<Account> accounts;
+    public List<AccountDto> accounts;
 }

@@ -56,7 +56,7 @@ public class AccountController {
         return mapper.toDto(account);
     }
 
-    @PatchMapping("/{id}")
+    @PutMapping("/{id}")
     @Operation(summary = "Edit account",
             description = "Edit account by ID",
             responses = {@ApiResponse(description = "OK", responseCode = "200", useReturnTypeSchema = true),

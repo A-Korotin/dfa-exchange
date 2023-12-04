@@ -59,7 +59,7 @@ public class WalletController {
         return mapper.toDto(wallet);
     }
 
-    @PatchMapping("/{id}")
+    @PutMapping("/{id}")
     @Operation(summary = "Edit wallet",
             description = "Edit wallet by ID",
             responses = {@ApiResponse(description = "OK", responseCode = "200", useReturnTypeSchema = true),
