@@ -2,7 +2,9 @@ package com.dfa.dfaserver.invest.domain;
 
 import com.dfa.dfaserver.invest.domain.listener.AccountInitializerListener;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
@@ -10,6 +12,8 @@ import java.util.List;
 @EntityListeners(AccountInitializerListener.class)
 @Table(name = "account")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Account {
     @Id
     private String address;
