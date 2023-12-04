@@ -4,5 +4,6 @@ public enum OrderStatus {
     PLACED,
     EXECUTED,
     EXECUTED_PARTLY,
+    PROCESSING,
     CANCELLED
 }

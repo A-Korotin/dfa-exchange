@@ -36,3 +36,4 @@ app:
         providers:
             klever:
                 assets-url: https://api.mainnet.klever.finance/v1.0/assets/list
+                balance-url: https://api.mainnet.klever.finance/v1.0/address/{address}/overview
